@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#d7193f">
+<title>For My Nabila 🌷 — From Jayy</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{--pink:#ff6f9f;--rose:#e83e75;--deep:#8c214d;--cream:#fff8f7;--ink:#623348;--glass:rgba(255,255,255,.72)}
+*{box-sizing:border-box}
+html{min-height:100%;scroll-behavior:smooth}
+body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);font-family:'DM Sans',sans-serif;background:linear-gradient(135deg,#fff0f5 0%,#ffe0eb 40%,#fff5ed 100%);display:grid;place-items:center;padding:22px 14px}
+body:before,body:after{content:"";position:fixed;z-index:-2;border-radius:50%;filter:blur(2px);pointer-events:none}
+body:before{width:360px;height:360px;left:-150px;top:-120px;background:radial-gradient(circle,#ffc0d6aa,transparent 70%)}
+body:after{width:440px;height:440px;right:-190px;bottom:-180px;background:radial-gradient(circle,#ffb9cdaa,transparent 70%)}
+button{font:inherit;cursor:pointer;border:0;transition:transform .2s,box-shadow .2s,background .2s}
+button:hover{transform:translateY(-2px)}
+button:active{transform:scale(.97)}
+#petals,#flowerRain{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+.petal{position:absolute;top:-50px;animation:fall linear forwards;opacity:.9;filter:drop-shadow(0 2px 3px #ad477322)}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(760deg);opacity:.15}}
+.app{width:min(100%,760px);position:relative;z-index:1}
+.topline{display:flex;justify-content:space-between;align-items:center;margin:0 auto 14px;max-width:680px;padding:0 5px;color:#a94a70;font-size:.82rem;letter-spacing:.06em}
+.brand{font-weight:700}.music{background:#ffffffb8;border:1px solid #fff;padding:9px 13px;border-radius:999px;color:#963657;box-shadow:0 5px 18px #b94a6b12}
+.progress{display:flex;gap:6px;justify-content:center;margin-bottom:16px}
+.progress span{height:5px;width:28px;border-radius:99px;background:#f3b5c9;transition:all .4s}
+.progress span.active{width:48px;background:#e75c8d}
+.screen{display:none;min-height:530px;position:relative;overflow:hidden;padding:clamp(24px,6vw,54px);border:1px solid #ffffffd9;border-radius:30px;background:var(--glass);backdrop-filter:blur(16px);box-shadow:0 22px 70px #a53d6519, inset 0 1px #fff; text-align:center;animation:screenIn .6s cubic-bezier(.2,.8,.2,1) both}
+.screen.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+@keyframes screenIn{from{opacity:0;transform:translateY(15px) scale(.985)}to{opacity:1;transform:none}}
+.screen:before{content:"";position:absolute;inset:9px;border:1px solid #ffc3d65c;border-radius:23px;pointer-events:none}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;color:#c65a81;font-weight:700;margin:0 0 13px}
+h1,h2{font-family:'Playfair Display',serif;line-height:1.15;color:#8e2c52;margin:0 0 18px}
+h1{font-size:clamp(2.1rem,7vw,4rem)}h2{font-size:clamp(1.8rem,5vw,2.8rem)}
+.script{font-family:'Great Vibes',cursive;color:#e44e83;font-size:clamp(2rem,7vw,3.5rem);line-height:1.1}
+p{line-height:1.75;font-size:1.02rem;margin:0 0 20px}
+.small{font-size:.88rem;color:#a05b75}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:11px;margin-top:17px;position:relative;z-index:2}
+.btn{padding:13px 21px;border-radius:999px;font-weight:700;box-shadow:0 8px 18px #a83b601c}
+.primary{color:white;background:linear-gradient(135deg,#ff79a6,#e6477d);box-shadow:0 10px 22px #e6477d3c}
+.secondary{color:#9e3d62;background:#fff0f5;border:1px solid #ffc4d8}
+.soft{color:#8f4963;background:#ffffffa8;border:1px solid #f6cad8}
+.hero-flowers{font-size:clamp(2.2rem,8vw,4rem);letter-spacing:.08em;margin:0 0 18px;filter:drop-shadow(0 5px 6px #e06c941b)}
+.photo-strip{display:flex;gap:10px;justify-content:center;margin:9px auto 20px;max-width:470px}
+.photo{height:100px;width:31%;border-radius:17px;background-size:cover;background-position:center;box-shadow:0 8px 20px #a942671f;border:3px solid #fff;transform:rotate(-3deg)}
+.photo:nth-child(2){transform:rotate(3deg) translateY(-5px)}.photo:nth-child(3){transform:rotate(-1deg)}
+/* A few real flower photographs, loaded online when connected. */
+.p1{background-image:url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=400&q=80')}
+.p2{background-image:url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=400&q=80')}
+.p3{background-image:url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=400&q=80')}
+.gift-wrap{height:190px;width:200px;position:relative;margin:8px auto 20px;cursor:pointer;filter:drop-shadow(0 12px 12px #b72e5826);transition:transform .3s}
+.gift-wrap:hover{transform:translateY(-5px) rotate(-2deg)}
+.gift-box{position:absolute;width:160px;height:118px;left:20px;bottom:0;background:linear-gradient(135deg,#ff334f,#bd123e);border-radius:7px 7px 13px 13px;box-shadow:inset -12px 0 #9f1239aa}
+.gift-box:before{content:"";position:absolute;left:64px;top:0;width:30px;height:100%;background:#ffb4c7}
+.gift-lid{position:absolute;width:188px;height:36px;left:6px;top:42px;border-radius:8px;background:linear-gradient(135deg,#ff4b63,#d71947);z-index:2;box-shadow:inset -9px 0 #aa173d77;transition:transform .75s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.gift-lid:before{content:"";position:absolute;left:79px;top:0;width:30px;height:100%;background:#ffc0d0}
+.bow{position:absolute;z-index:3;left:73px;top:14px;width:54px;height:43px}
+.bow:before,.bow:after{content:"";position:absolute;width:30px;height:24px;border:9px solid #ffc2d0;border-radius:50% 50% 15% 50%;transform:rotate(30deg)}
+.bow:after{left:22px;transform:scaleX(-1) rotate(30deg)}
+.gift-wrap.open .gift-lid{transform:translate(20px,-90px) rotate(22deg);opacity:.2}
+.gift-wrap.open .bow{transform:translate(20px,-90px) rotate(22deg);opacity:0;transition:.5s}
+.flower-message{opacity:0;transform:translateY(18px) scale(.92);max-height:0;overflow:hidden;transition:all .8s ease}
+.flower-message.show{opacity:1;transform:none;max-height:400px;overflow:visible}
+.burst{position:absolute;inset:0;pointer-events:none;z-index:3}
+.burst-flower{position:absolute;left:50%;top:45%;font-size:clamp(18px,4vw,34px);animation:burstOut 1.5s cubic-bezier(.1,.7,.2,1) forwards}
+@keyframes burstOut{0%{transform:translate(-50%,-50%) scale(.2) rotate(0);opacity:0}12%{opacity:1}100%{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(var(--rot)) scale(var(--scale));opacity:0}}
+.envelope{width:230px;height:150px;position:relative;margin:18px auto 25px;cursor:pointer;filter:drop-shadow(0 12px 12px #b72e5822);transition:transform .3s}
+.envelope:hover{transform:translateY(-4px)}
+.env-back{position:absolute;inset:0;background:#f3a4c4;border-radius:9px}
+.env-paper{position:absolute;left:18px;right:18px;bottom:10px;height:122px;background:#fffaf6;border-radius:5px;transition:transform .8s;display:grid;place-items:center;color:#d65a89;font-size:2rem}
+.env-front{position:absolute;inset:0;background:#f8b4cf;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border-radius:0 0 9px 9px}
+.env-flap{position:absolute;inset:0;background:#fbd0df;clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top;transition:transform .6s;z-index:2}
+.envelope.open .env-flap{transform:rotateX(180deg)}
+.envelope.open .env-paper{transform:translateY(-70px);transition-delay:.35s}
+.letter{display:none;text-align:left;width:100%;max-width:590px;padding:clamp(22px,5vw,36px);background:#fffaf5;border:1px solid #f6d7dd;border-radius:16px;box-shadow:0 8px 24px #aa466116;line-height:2;white-space:pre-line;font-family:'Playfair Display',serif;color:#704158;font-size:1.16rem;animation:letterIn .8s both}
+.letter.show{display:block}
+@keyframes letterIn{from{opacity:0;transform:translateY(22px) rotate(-1deg)}to{opacity:1;transform:none}}
+.note{font-size:.84rem;color:#b35a7c;margin-top:20px}
+.pulse{animation:pulse 1.7s infinite}
+@keyframes pulse{50%{transform:scale(1.04)}}
+.final-heart{font-size:4rem;animation:heartbeat 1.4s infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}20%{transform:scale(1.15)}40%{transform:scale(1)}60%{transform:scale(1.1)}}
+#nopeNote{min-height:25px;color:#b74771;font-size:.9rem;margin-top:14px}
+.footer{text-align:center;color:#b66b88;font-size:.75rem;margin:14px 0 0}
+@media(max-width:480px){.screen{min-height:560px;padding:27px 20px;border-radius:24px}.photo{height:82px}.topline{font-size:.72rem}.btn{padding:12px 16px}.letter{font-size:1.08rem;line-height:1.95;padding:22px 18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Romantic rose-red palette: original blush pinks stay, with deeper rose and cherry accents. */
+:root{
+ --pink:#ff6f9f; --rose:#e83e55; --deep:#7d1734; --cream:#fff8f7; --ink:#542333; --glass:rgba(255,255,255,.78);
+ --cherry:#a90f2d; --wine:#5f1029; --ruby:#d7193f; --blush:#ffe0e7; --warm:#fff0ed; --blood-red:#8f1028;
+}
+body{background:radial-gradient(ellipse at 12% 8%,#ffd4e1 0%,transparent 37%),
+ radial-gradient(ellipse at 85% 15%,#ffc1cb 0%,transparent 32%),linear-gradient(135deg,#fff0f5 0%,#ffd3dd 30%,#ffe0e4 58%,#fff0ed 100%)}
+body:before{background:radial-gradient(circle,#ffb2c9bb,transparent 70%)}
+body:after{background:radial-gradient(circle,#c5163f55,transparent 70%)}
+.screen{box-shadow:0 22px 70px #8d102c26,inset 0 1px #fff;border-color:#fff0f2}
+.topline{color:#8b1737}
+.music{color:#8e2148;border-color:#ffd0dd;background:linear-gradient(135deg,#fff9fb,#ffe4ec)}
+.progress span{background:#efb2bd}.progress span.active{background:linear-gradient(90deg,#e83e55,#9f0f2d)}
+.primary{background:linear-gradient(135deg,#ff657e 0%,#df2549 45%,#9f0e2d 100%);box-shadow:0 10px 22px #b30f353d}
+.secondary{color:#8c1734;background:linear-gradient(135deg,#fff1f4,#ffd8e0);border-color:#e99aaa}
+.soft{color:#7f1732;background:#fff6f7e8;border-color:#e9a6b4}
+h1,h2{color:#79152f}
+.script{color:#c91843}
+.kicker{color:#a32646}
+.gift-box{background:linear-gradient(135deg,#ff394f,#d20d35 58%,#850b28);box-shadow:inset -12px 0 #740820aa}
+.gift-lid{background:linear-gradient(135deg,#ff5266,#d4143b 60%,#a20c2d);box-shadow:inset -9px 0 #790a2677}
+.gift-box:before{background:linear-gradient(#ffd0dc,#ff9eb9)}
+.gift-lid:before{background:linear-gradient(#ffe0e8,#ffb1c6)}
+.env-back{background:#d9365d}
+.env-front{background:linear-gradient(135deg,#f58ba8,#e74a70)}
+.env-flap{background:linear-gradient(135deg,#ffd7df,#f06c8a)}
+
+
+.music-card{border-color:#f4b4c1;background:linear-gradient(145deg,#fff7f8,#ffdce3 58%,#fff0ed)}
+
+.secret-overlay[hidden]{display:none}
+.secret-overlay{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:18px;background:#54142db8;backdrop-filter:blur(8px);animation:fadeIn .25s both}
+.secret-card{position:relative;width:min(100%,440px);padding:34px 27px 28px;border:1px solid #fff;border-radius:26px;text-align:center;background:linear-gradient(145deg,#fff8fa,#ffe2eb);box-shadow:0 25px 80px #39091e55;animation:screenIn .45s both}
+.secret-close{position:absolute;right:13px;top:10px;background:#ffffffc9;color:#a22d51;border-radius:50%;width:36px;height:36px;font-size:1.5rem}
+.secret-emoji{font-size:2.6rem;margin-bottom:8px}
+.tiny-hint{opacity:.62;cursor:pointer}
+.heart-spark{position:fixed;z-index:15;pointer-events:none;font-size:20px;animation:heartFloat 1s ease-out forwards}
+@keyframes heartFloat{to{transform:translateY(-65px) scale(1.7) rotate(20deg);opacity:0}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+#secretTitle{font-size:2rem}
+
+
+/* Extra cozy windows: touch-friendly flower cards, folding notes, and a tappable night sky. */
+.flower-picker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;width:min(100%,500px);margin:12px auto 18px}
+.flower-choice{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:100px;padding:12px 5px;border:1px solid #f4bdce;border-radius:18px;background:linear-gradient(145deg,#fffafd,#ffe5ed);color:#8b2b50;font-size:2rem;box-shadow:0 7px 18px #a83b6010}
+.flower-choice span{font-size:.76rem;font-weight:700}
+.flower-choice.selected{background:linear-gradient(145deg,#ffd5e2,#ffb8cc);border-color:#d83d68;box-shadow:0 0 0 3px #e83e7520}
+.flower-note-card{width:min(100%,500px);min-height:115px;padding:18px 20px;border:1px solid #f5d1dc;border-radius:20px;background:#fffaf8d9;display:flex;align-items:center;justify-content:center;gap:15px;box-shadow:inset 0 1px #fff}
+#chosenFlower{font-size:2.4rem;flex-shrink:0} .flower-note-card p{margin:0;text-align:left;font-size:1rem}
+.thought-list{width:100%;max-width:540px;display:grid;gap:11px;margin:8px 0 14px;text-align:left}
+.thought{display:flex;flex-direction:column;align-items:stretch;text-align:left;gap:0;padding:17px 18px;border-radius:17px;border:1px solid #f4c7d5;background:linear-gradient(135deg,#fffafb,#ffeaf0);color:#853451;box-shadow:0 5px 16px #a83b600d}
+.thought>span:first-child{font-weight:700;font-size:1rem}.thought-answer{display:none;padding-top:12px;margin-top:11px;border-top:1px solid #f1c6d3;line-height:1.75;font-size:.98rem;color:#704158}.thought[aria-expanded="true"] .thought-answer{display:block;animation:fadeIn .35s both}
+.wish-sky{width:min(100%,520px);height:250px;position:relative;overflow:hidden;border-radius:25px;border:1px solid #e6bbd0;background:radial-gradient(ellipse at 25% 20%,#8f527b 0%,transparent 38%),linear-gradient(145deg,#291c49,#51264f 55%,#8d4268);box-shadow:inset 0 0 45px #170f33aa,0 12px 30px #6b28501c;margin:12px auto 17px}
+.wish-sky:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#ffd6e8 1px,transparent 1.5px);background-size:41px 43px,67px 59px;background-position:8px 10px,24px 17px;opacity:.48}
+.wish-star{position:absolute;left:var(--x);top:var(--y);z-index:2;transform:translate(-50%,-50%);background:transparent;color:#d9c7e8;font-size:2rem;padding:10px;line-height:1;text-shadow:0 0 10px #e8c7ff55;transition:color .3s,transform .3s,text-shadow .3s}
+.wish-star.lit{color:#fff3b0;transform:translate(-50%,-50%) scale(1.4);text-shadow:0 0 8px #fff1a6,0 0 22px #ffc1de}
+.wish-moon{position:absolute;right:15px;bottom:8px;color:#ffe5bd;font-size:4.5rem;opacity:.88;text-shadow:0 0 28px #ffd6a655}
+@media(max-width:480px){.flower-picker{gap:8px}.flower-choice{min-height:88px;font-size:1.8rem}.flower-choice span{font-size:.7rem}.wish-sky{height:225px}.flower-note-card{padding:15px}}
+
+
+/* Three-question lock and gentle congratulations window. */
+.quiz-list{width:min(100%,540px);display:grid;gap:12px;text-align:left;margin:5px 0 8px}
+.quiz-question{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:16px 17px;border:1px solid #efb4c2;border-radius:18px;background:linear-gradient(140deg,#fffafb,#ffe5eb);box-shadow:0 6px 18px #9f0f2d0b;color:#70243a}
+.quiz-number{font-size:.72rem;letter-spacing:.13em;font-weight:800;color:#b61c3d}
+.quiz-title{font-family:'Playfair Display',serif;font-size:1.13rem;font-weight:700;color:#79152f}
+.quiz-hint,.hint-text{font-size:.87rem;color:#9a4962;line-height:1.6;margin:0}
+.quiz-input{width:100%;min-height:47px;border:1px solid #e8a8b8;border-radius:12px;padding:11px 13px;font:inherit;color:#582236;background:#fffdfd;outline:none}
+.quiz-input:focus{border-color:#c91843;box-shadow:0 0 0 3px #c918431c}
+.puzzle-text{font-size:.95rem;line-height:1.65;margin:0;color:#704158}
+.puzzle-text strong{display:block;margin-top:7px;color:#b51237;letter-spacing:.1em;font-size:1.1rem}
+.hint-toggle{align-self:flex-start;padding:7px 0;background:transparent;color:#a51a3a;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.hint-text{padding:10px 12px;border-radius:11px;background:#fff5f7}
+.quiz-feedback{min-height:24px;margin:7px 0 0;color:#a51a3a;font-weight:600;font-size:.92rem}
+#quizContinue[hidden]{display:none}
+@media(max-width:480px){.quiz-question{padding:14px}.quiz-title{font-size:1.06rem}.quiz-input{font-size:16px}}
+
+/* Desktop-safe flower rain: keep the overlay above the cards and visible even when
+   the visitor's operating system requests reduced motion. */
+#petals,#flowerRain{position:fixed!important;inset:0!important;z-index:9999!important;pointer-events:none!important;overflow:hidden!important;contain:layout style!important}
+.petal{display:block!important;position:absolute!important;top:-55px!important;opacity:.96!important;line-height:1!important;will-change:transform,opacity;animation-name:fall!important;animation-timing-function:linear!important;animation-fill-mode:forwards!important}
+@keyframes fall{0%{transform:translate3d(0,-2vh,0) rotate(0deg);opacity:0}8%{opacity:.96}100%{transform:translate3d(var(--drift),112vh,0) rotate(760deg);opacity:.15}}
+@media(prefers-reduced-motion:reduce){.petal{animation-duration:16s!important;animation-iteration-count:1!important}}
+
+</style>
+</head>
+<body>
+<div id="petals"></div><div id="flowerRain"></div>
+<main class="app">
+  <div class="topline"><div class="brand">♡ A little something from Jayy</div><button class="music" id="musicBtn" aria-label="Play a gentle melody" aria-pressed="false">♫ Melody for you</button></div>
+  <div class="progress" aria-label="Surprise progress"><span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <section class="screen active" id="s1">
+    <div class="hero-flowers">🌷 🌷 🌹 🌷 🌸 🌷</div>
+    <p class="kicker">A tiny surprise for a very special girl</p>
+    <h1>I have a surprise<br>for you, babe 😘</h1>
+    <p>It's made with a little love, a little magic, and a whole lot of <b>you</b> in my heart. 🤗</p>
+    <div class="photo-strip"><div class="photo p1" role="img" aria-label="Pink flowers"></div><div class="photo p2" role="img" aria-label="A romantic flower bouquet"></div><div class="photo p3" role="img" aria-label="A beautiful bouquet"></div></div>
+    <h2 style="font-size:1.55rem;margin-bottom:8px">Wanna see? 🤗</h2>
+    <div class="actions"><button class="btn primary" onclick="go(1)">Sure darling 🤭</button><button class="btn secondary" id="firstNo">Nope 🙄</button></div>
+    <div id="nopeNote" aria-live="polite"></div>
+    <p class="note">P.S. You look cute already. I just know it. 🥹</p>
+  </section>
+
+  <section class="screen" id="sLock">
+    <div class="hero-flowers">🌷 💗 🌷</div>
+    <p class="kicker">Just a tiny little lock 🔐</p>
+    <h1>Surprise is waiting for you, my Princess😘</h1>
+    <p>Three little questions stand between you and the surprise. Take your time, and use the hints if you need them. 🌷</p>
+    <div class="quiz-list">
+      <label class="quiz-question" for="birthdayAnswer"><span class="quiz-number">01</span><span class="quiz-title">When is my birthday?</span>
+        <select id="birthdayAnswer" class="quiz-input">
+          <option value="">Choose the date…</option>
+          <option value="14 February">14 February</option>
+          <option value="21 August">21 August</option>
+          <option value="7 July">7 July</option>
+          <option value="31 December">31 December</option>
+        </select>
+      </label>
+      <label class="quiz-question" for="nameAnswer"><span class="quiz-number">02</span><span class="quiz-title">What's my real name?</span>
+        <span class="quiz-hint">Hint: 5 letters, all small letters. 🤭</span>
+        <input id="nameAnswer" class="quiz-input" type="text" maxlength="20" placeholder="Type your answer here…" autocomplete="off" autocapitalize="none" spellcheck="false">
+      </label>
+      <div class="quiz-question"><span class="quiz-number">03</span><span class="quiz-title">A little flower puzzle 🌷</span>
+        <p class="puzzle-text">I’m a flower you really like. My name has five letters. If A = 1, B = 2, and so on, what flower is hidden in these numbers? <strong>20 · 21 · 12 · 9 · 16</strong></p>
+        <input id="puzzleAnswer" class="quiz-input" type="text" maxlength="20" placeholder="The flower's name…" autocomplete="off" autocapitalize="none" spellcheck="false">
+        <button type="button" class="hint-toggle" id="puzzleHint">Need a little hint? 💌</button>
+        <p class="hint-text" id="puzzleHintText" hidden>Start with the flower you love. Decode each number using the alphabet—this one was picked especially for you. 🌷</p>
+      </div>
+    </div>
+    <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+    <div class="actions"><button class="btn primary" id="checkAnswers">Unlock my surprise 🔑</button><button class="btn soft" onclick="go(0)">Back</button></div>
+    <div class="actions" id="quizContinue" hidden><button class="btn primary" onclick="go(2)">I did it! Show me 💗</button></div>
+  </section>
+
+  <section class="screen" id="sCongrats">
+    <div class="hero-flowers">🌷 🌷 💐 🌷</div>
+    <p class="kicker">You made it! ✨</p>
+    <h1>Congratulations, Princess! 💗</h1>
+    <p>You got all three right! I knew you’d make it through. 🥹 I hope the little journey ahead gives you a few smiles and makes this ordinary moment feel a bit more special.</p>
+    <p>Now get comfy, take your time, and enjoy what I made for you. There’s no rush. 🌷</p>
+    <div class="hero-flowers" aria-hidden="true">🌷 🌹 🌷 🌸 🌷</div>
+    <div class="actions"><button class="btn primary" onclick="go(3)">Let the surprise begin 🌹</button></div>
+  </section>
+
+  <section class="screen" id="s2">
+    <p class="kicker">Your present, my Princess</p><h1>A little box of love 🎁</h1>
+    <p>Made for you from miles away. Tap the box or press the button to open it.</p>
+    <div class="gift-wrap" id="gift" role="button" tabindex="0" aria-label="Open the red gift box">
+      <div class="gift-box"></div><div class="gift-lid"></div><div class="bow"></div><div class="burst" id="burst"></div>
+    </div>
+    <button class="btn primary pulse" id="openGift">Open your gift 💝</button>
+    <div class="flower-message" id="flowerMessage"><div class="hero-flowers">🌷 🌷 🌷 🌹 💐 🌷 🌺 🌸 🌷 🌼 🌷</div><h2>You deserve all these flowers…</h2><p class="script">and you're also my flower 😘</p><p>Every petal is a little reminder that you are loved, Nabila. 💗</p><div class="actions"><button class="btn primary" onclick="go(4)">Wanna continue? 🫣</button></div></div>
+  </section>
+
+  <section class="screen" id="s3">
+    <div class="hero-flowers">🌷 🌸 💗 🌷 🌷</div><p class="kicker">One surprise down…</p>
+    <h1>There's always more from me for you, my Princess 😄</h1>
+    <p>Distance can keep me from handing you these flowers, but it can't stop me from finding new ways to make you smile. 🥹</p>
+    <div class="photo-strip"><div class="photo p3"></div><div class="photo p1"></div><div class="photo p2"></div></div>
+    <div class="actions"><button class="btn primary" onclick="go(5)">Continue 🌷</button><button class="btn secondary" id="notReady">I'm not ready 🙄</button></div><div id="readyNote" class="note"></div>
+  </section>
+
+  <section class="screen" id="s4">
+    <p class="kicker">Delivered with love 💌</p><h1>A letter, just for you</h1>
+    <p>There's something I want you to read, Princess.</p>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the pink envelope">
+      <div class="env-back"></div><div class="env-paper">💌</div><div class="env-front"></div><div class="env-flap"></div>
+    </div>
+    <div class="actions" id="envActions"><button class="btn primary" id="openLetter">Open 💗</button><button class="btn secondary" id="envNope">Nope 🙈</button><button class="btn soft" id="hateYou">I hate you 😤</button></div>
+    <p id="envNote" class="note" aria-live="polite"></p>
+    <article class="letter" id="letter">My Nabila
+
+I wish i could give you these flowers in real life🥺.But we're really far away😓.
+
+You dont know how much Important you are to me.I really get happy when you message me.You literally make my days alot better.😄I really like it when you share little details about your day and share your sadness when you feel sad.🥺
+
+I might not be the best person for you but still I tried my best to prepare this for you because you deserve all of the best things.You deserve to be loved and you really deserve all love of this world.^^
+
+ You're prettiest girl everr, you have a pure heart, Don't compare yourself with others that much^^  I wish the best of you and I love to spend my time with you.You are perfect🥺
+
+Don't forget to take care of yourself^^.I want you to think about youself first.I want you to achieve your goals, Make your parents proud.I have the belief on you, my girl😉
+
+Love you Princess😘🌷🌹
+ 
+-Your Jayy</article>
+    <div class="actions" id="letterNext" style="display:none"><button class="btn primary" onclick="go(6)">Let’s wander a little more 🌙</button></div>
+  </section>
+
+  <section class="screen" id="s6">
+    <p class="kicker">A tiny garden to explore 🌷</p>
+    <h1>Pick a flower, any flower</h1>
+    <p>No wrong choices here. Tap whichever one catches your eye, and there’s a little note waiting for you.</p>
+    <div class="flower-picker" role="group" aria-label="Choose a flower">
+      <button class="flower-choice" data-flower="🌷" data-note="A tulip for a day that deserves a softer start. I hope something small makes you smile today." aria-label="Tulip">🌷<span>Tulip</span></button>
+      <button class="flower-choice" data-flower="🌷" data-note="A red tulip for a feeling that’s a little shy but very sincere. I hope this tiny flower brings a warm smile to your face. ❤️🌷" aria-label="Red tulip">🌷<span>Red tulip</span></button>
+      <button class="flower-choice" data-flower="🌻" data-note="A sunflower for your bright side—even on the days when you don’t feel especially sunny." aria-label="Sunflower">🌻<span>Sunflower</span></button>
+      <button class="flower-choice" data-flower="🌹" data-note="A rose for the little things that make someone special: kindness, laughter, and the way they make an ordinary day feel nicer." aria-label="Rose">🌹<span>Rose</span></button>
+      <button class="flower-choice" data-flower="🌼" data-note="A little daisy for a reminder to take a breath, drink some water, and be gentle with yourself." aria-label="Daisy">🌼<span>Daisy</span></button>
+      <button class="flower-choice" data-flower="🪻" data-note="Lavender for a quiet moment. You don’t have to do anything impressive to deserve a peaceful day." aria-label="Lavender">🪻<span>Lavender</span></button>
+      <button class="flower-choice" data-flower="🌸" data-note="A cherry blossom for new beginnings. Some lovely things take their time, and that’s perfectly okay." aria-label="Cherry blossom">🌸<span>Blossom</span></button>
+    </div>
+    <div class="flower-note-card" id="flowerNoteCard" aria-live="polite"><span id="chosenFlower">🌸</span><p id="chosenFlowerNote">Choose a flower above to open your little note. 💗</p></div>
+    <div class="actions"><button class="btn primary" onclick="go(7)">Next little stop ✨</button><button class="btn soft" id="shuffleFlowers">Surprise me</button></div>
+  </section>
+
+  <section class="screen" id="s7">
+    <p class="kicker">A pocketful of kind thoughts 💌</p>
+    <h1>Little things worth remembering</h1>
+    <p>Open these whenever you like. They’re not big speeches—just small reminders for an ordinary day.</p>
+    <div class="thought-list">
+      <button class="thought" aria-expanded="false"><span>☁️ When the day feels heavy</span><span class="thought-answer">You don’t need to solve everything at once. One little step, one sip of water, one deep breath. That counts.</span></button>
+      <button class="thought" aria-expanded="false"><span>🌷 When you need a smile</span><span class="thought-answer">Imagine a very serious flower delivery person arriving with a bouquet almost bigger than the door. Their only message: “This is for Nabila. Have a nice day.” 😄</span></button>
+      <button class="thought" aria-expanded="false"><span>🌙 When it’s late and quiet</span><span class="thought-answer">Somewhere under the same sky, someone is wishing you a peaceful night and hoping tomorrow treats you kindly.</span></button>
+      <button class="thought" aria-expanded="false"><span>✨ A tiny reminder</span><span class="thought-answer">You’re allowed to rest. You’re allowed to change your mind. And you’re allowed to have a day that’s simply okay.</span></button>
+    </div>
+    <p class="small" id="thoughtCounter">0 of 4 little notes opened</p>
+    <div class="actions"><button class="btn primary" onclick="go(8)">One more window 🌌</button></div>
+  </section>
+
+  <section class="screen" id="s8">
+    <p class="kicker">A little night-sky corner 🌙</p>
+    <h1>Make a wish on a star</h1>
+    <p>Tap the stars to light them up. You don’t have to tell anyone your wish; it can stay yours.</p>
+    <div class="wish-sky" id="wishSky" aria-label="Tap stars to light up the sky">
+      <button class="wish-star" style="--x:12%;--y:22%" aria-label="Light star one">✦</button>
+      <button class="wish-star" style="--x:32%;--y:65%" aria-label="Light star two">✧</button>
+      <button class="wish-star" style="--x:50%;--y:28%" aria-label="Light star three">✦</button>
+      <button class="wish-star" style="--x:71%;--y:55%" aria-label="Light star four">✧</button>
+      <button class="wish-star" style="--x:87%;--y:19%" aria-label="Light star five">✦</button>
+      <button class="wish-star" style="--x:20%;--y:78%" aria-label="Light star six">✧</button>
+      <button class="wish-star" style="--x:61%;--y:78%" aria-label="Light star seven">✦</button>
+      <span class="wish-moon">☾</span>
+    </div>
+    <p id="wishMessage" aria-live="polite">0 stars lit. The sky’s waiting for you. ✨</p>
+    <p class="small">A small note from Jayy: I hope life brings you plenty of reasons to feel proud of yourself.</p>
+    <div class="actions"><button class="btn primary" onclick="go(9)">Finish the little journey 💐</button><button class="btn soft" id="clearStars">Start the sky again</button></div>
+  </section>
+
+  <section class="screen" id="s5">
+    <div class="final-heart">💗</div><div class="hero-flowers">🌷 🌹 🌷 🌸 🌷 🌻 🌼 🌷 💐 🌷</div>
+    <p class="kicker">A little love, across all those miles</p>
+    <h1>That's all for today,<br><span class="script">My Princess 🥺</span></h1>
+    <p>Until I can give you real flowers, here's an endless little garden from me to you.</p>
+    <p class="script">I love you, Nabila. 😘</p>
+    <div class="actions"><button class="btn primary" id="rainAgain">More flowers, please! 🌸</button><button class="btn secondary" id="restart">Replay our surprise ↺</button></div>
+    <p class="note">Made with love, just for you — Jayy ♡</p>
+  </section>
+  <div class="footer">A little digital garden for Nabila ♡ <span class="tiny-hint">psst… tap the flowers 7 times for a secret 🌙</span><br>A soft, original melody made to play right here, just for you. 🎶</div>
+</main>
+
+  <div class="secret-overlay" id="secretOverlay" role="dialog" aria-modal="true" aria-labelledby="secretTitle" hidden>
+    <div class="secret-card">
+      <button class="secret-close" id="closeSecret" aria-label="Close secret note">×</button>
+      <div class="secret-emoji">💌🌹</div>
+      <p class="kicker">A secret from Jayy</p>
+      <h2 id="secretTitle">Just between us…</h2>
+      <p id="secretText">If I could fold the distance like a little paper heart, I'd be beside you already. Until then, every tiny thing I make carries a piece of me to you. 💗</p>
+      <button class="btn primary" id="secretHug">Send me a virtual hug 🫂</button>
+      <p class="small" id="secretReply" aria-live="polite"></p>
+    </div>
+  </div>
+
+<script>
+const screens=[...document.querySelectorAll('.screen')];
+const steps=[...document.querySelectorAll('.progress span')];
+function go(n){screens.forEach((s,i)=>s.classList.toggle('active',i===n));steps.forEach((s,i)=>s.classList.toggle('active',i<=n));window.scrollTo({top:0,behavior:'smooth'});if(n===9)startRain(95)}
+const flowerEmojis=['🌷','🌷','🌷','🌷','🌷','🌸','🌹','🌺','🌻','🌼','💮','🪻','💐','💕','❤️','✨'];
+function burstFlowers(){const burst=document.getElementById('burst');burst.innerHTML='';for(let i=0;i<115;i++){const f=document.createElement('span');f.className='burst-flower';f.textContent=flowerEmojis[Math.floor(Math.random()*flowerEmojis.length)];const angle=Math.random()*Math.PI*2;const dist=100+Math.random()*330;f.style.setProperty('--x',Math.cos(angle)*dist+'px');f.style.setProperty('--y',Math.sin(angle)*dist+'px');f.style.setProperty('--rot',(Math.random()*720-360)+'deg');f.style.setProperty('--scale',(0.5+Math.random()*1.3));f.style.animationDelay=(Math.random()*.3)+'s';burst.appendChild(f)}}
+let giftOpened=false;
+function openGift(){if(giftOpened)return;giftOpened=true;document.getElementById('gift').classList.add('open');burstFlowers();document.getElementById('openGift').style.display='none';setTimeout(()=>document.getElementById('flowerMessage').classList.add('show'),450);startRain(65)}
+document.getElementById('openGift').addEventListener('click',openGift);
+document.getElementById('gift').addEventListener('click',openGift);
+document.getElementById('gift').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift()}});
+document.getElementById('firstNo').addEventListener('click',()=>{const notes=['Awww, really? 🥺','I made it just for youuu. One tiny peek? 🌷','My puppy eyes are activated 🥹','Okay okay… but the flowers are getting shy 🙈'];const el=document.getElementById('nopeNote');el.textContent=notes[Math.floor(Math.random()*notes.length)];const b=document.getElementById('firstNo');b.style.transform=`translate(${(Math.random()-.5)*35}px,${(Math.random()-.5)*12}px)`;});
+document.getElementById('notReady').addEventListener('click',()=>{const notes=['Take your time, Princess. I’m not going anywhere 🥹','Ready or not, you deserve to be spoiled 🌸','Okay, one deep breath… and a virtual hug 🫂'];document.getElementById('readyNote').textContent=notes[Math.floor(Math.random()*notes.length)]});
+let envelopeOpened=false;
+function openEnvelope(){if(envelopeOpened)return;envelopeOpened=true;document.getElementById('envelope').classList.add('open');document.getElementById('envActions').style.display='none';document.getElementById('envNote').textContent='';setTimeout(()=>{document.getElementById('letter').classList.add('show');document.getElementById('letterNext').style.display='flex'},650);for(let i=0;i<24;i++)spawnPetal(true)}
+document.getElementById('openLetter').addEventListener('click',openEnvelope);
+document.getElementById('envelope').addEventListener('click',openEnvelope);
+document.getElementById('envelope').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openEnvelope()}});
+document.getElementById('envNope').addEventListener('click',()=>{document.getElementById('envNote').textContent='No rush, babe. This letter will wait for you 💗';});
+document.getElementById('hateYou').addEventListener('click',()=>{document.getElementById('envNote').textContent="Okay, that's fine, but I don't 🥺💗";for(let i=0;i<12;i++)spawnPetal(true)});
+function spawnPetal(short=false){const holder=document.getElementById('petals');if(!holder)return;const el=document.createElement('span');el.className='petal';el.setAttribute('aria-hidden','true');el.textContent=flowerEmojis[Math.floor(Math.random()*flowerEmojis.length)];el.style.left=(Math.random()*96+2)+'vw';el.style.fontSize=(20+Math.random()*24)+'px';el.style.setProperty('--drift',(Math.random()*260-130)+'px');el.style.animationDuration=(short?12+Math.random()*7:15+Math.random()*8)+'s';holder.appendChild(el);el.addEventListener('animationend',()=>el.remove(),{once:true});setTimeout(()=>{if(el.isConnected)el.remove()},28000)}
+let rainTimer=null;
+function startRain(count=35){for(let i=0;i<count;i++)setTimeout(()=>spawnPetal(true),i*110)}
+document.getElementById('rainAgain').addEventListener('click',()=>{startRain(130);const b=document.getElementById('rainAgain');b.textContent='A whole garden for you! 💐';setTimeout(()=>b.textContent='More flowers, please! 🌸',2200)});
+document.getElementById('restart').addEventListener('click',()=>{giftOpened=false;envelopeOpened=false;document.getElementById('gift').classList.remove('open');document.getElementById('burst').innerHTML='';document.getElementById('openGift').style.display='inline-block';document.getElementById('flowerMessage').classList.remove('show');document.getElementById('envelope').classList.remove('open');document.getElementById('envActions').style.display='flex';document.getElementById('letter').classList.remove('show');document.getElementById('letterNext').style.display='none';document.getElementById('envNote').textContent='';document.getElementById('readyNote').textContent='';document.getElementById('nopeNote').textContent='';document.getElementById('birthdayAnswer').value='';document.getElementById('nameAnswer').value='';document.getElementById('puzzleAnswer').value='';document.getElementById('quizFeedback').textContent='';document.getElementById('quizContinue').hidden=true;document.getElementById('checkAnswers').hidden=false;go(0)});
+// The three little questions protect the surprise until all answers are correct.
+const birthdayAnswer=document.getElementById('birthdayAnswer');
+const nameAnswer=document.getElementById('nameAnswer');
+const puzzleAnswer=document.getElementById('puzzleAnswer');
+nameAnswer.addEventListener('input',()=>{const start=nameAnswer.selectionStart;nameAnswer.value=nameAnswer.value.toLowerCase();try{nameAnswer.setSelectionRange(start,start)}catch(_){}});
+puzzleAnswer.addEventListener('input',()=>{const start=puzzleAnswer.selectionStart;puzzleAnswer.value=puzzleAnswer.value.toLowerCase();try{puzzleAnswer.setSelectionRange(start,start)}catch(_){}});
+document.getElementById('puzzleHint').addEventListener('click',()=>{
+  const hint=document.getElementById('puzzleHintText');hint.hidden=!hint.hidden;
+  document.getElementById('puzzleHint').textContent=hint.hidden?'Need a little hint? 💌':'Hide the hint 🌷';
+});
+document.getElementById('checkAnswers').addEventListener('click',()=>{
+  const birthday=birthdayAnswer.value==='21 August';
+  const name=nameAnswer.value.trim()==='jahin';
+  const puzzle=puzzleAnswer.value.trim()==='tulip';
+  const feedback=document.getElementById('quizFeedback');
+  if(birthday&&name&&puzzle){
+    feedback.textContent='All three answers are right! You found your way in. I’m so happy you’re here. 🥹🌷';
+    feedback.style.color='#23754a';
+    document.getElementById('checkAnswers').hidden=true;
+    document.getElementById('quizContinue').hidden=false;
+    startRain(18);
+  }else{
+    feedback.style.color='#a51a3a';
+    const missed=[];if(!birthday)missed.push('the birthday');if(!name)missed.push('the name');if(!puzzle)missed.push('the flower puzzle');
+    feedback.textContent='Not quite yet 💗 Have another try with '+missed.join(', ')+'. You can do it!';
+  }
+});
+
+// Original slow, calm romantic melody: warm sustained chords, soft plucks and a gentle phrase.
+// It is synthesized locally, so it plays directly on this page without an external audio link.
+let audioCtx=null, musicOn=false, musicTimer=null, stepIndex=0;
+const bpm=52, beat=60/bpm;
+const chords=[
+  {pad:[261.63,329.63,392.00,493.88],arp:[523.25,659.25,783.99,659.25],lead:[783.99,659.25,587.33,523.25]},
+  {pad:[220.00,261.63,329.63,392.00],arp:[440.00,523.25,659.25,523.25],lead:[659.25,587.33,523.25,440.00]},
+  {pad:[174.61,220.00,261.63,329.63],arp:[349.23,440.00,523.25,440.00],lead:[587.33,523.25,440.00,392.00]},
+  {pad:[196.00,246.94,293.66,392.00],arp:[392.00,493.88,587.33,493.88],lead:[659.25,587.33,493.88,523.25]}
+];
+function tone(freq, when, duration, opts={}){
+  const osc=audioCtx.createOscillator(), gain=audioCtx.createGain(), filter=audioCtx.createBiquadFilter();
+  osc.type=opts.type||'sine'; osc.frequency.setValueAtTime(freq,when);
+  if(opts.detune)osc.detune.value=opts.detune;
+  filter.type='lowpass';filter.frequency.value=opts.cutoff||1800;
+  gain.gain.setValueAtTime(.0001,when);
+  gain.gain.exponentialRampToValueAtTime(opts.volume||.025,when+(opts.attack||.12));
+  gain.gain.setValueAtTime(opts.volume||.025,when+Math.max(.13,duration*.58));
+  gain.gain.exponentialRampToValueAtTime(.0001,when+duration);
+  osc.connect(filter);filter.connect(gain);gain.connect(audioCtx.destination);
+  osc.start(when);osc.stop(when+duration+.04);
+}
+function scheduleMusicStep(){
+  if(!musicOn||!audioCtx)return;
+  const now=audioCtx.currentTime+.04, step=stepIndex%16, chord=chords[Math.floor(step/4)%4];
+  // Soft, sustained chord tone on every bar-quarter; detuned pair gives it a warm shimmer.
+  if(step%4===0){
+    chord.pad.slice(0,3).forEach((f,i)=>tone(f/2,now,beat*3.8,{volume:.012,attack:.5,cutoff:850}));
+    tone(chord.pad[3],now,beat*2.5,{volume:.007,attack:.35,cutoff:1200});
+  }
+  // Plucked notes dance gently across each chord.
+  const arp=chord.arp[step%4];
+  tone(arp,now,beat*.82,{type:'triangle',volume:.025,attack:.025,cutoff:2600});
+  if(step%2===0)tone(arp*2,now+.025,beat*.35,{type:'sine',volume:.006,attack:.04,cutoff:3500});
+  // A small, lyrical phrase every other bar.
+  const phrase=[0,2,1,3,2,1,0,1];
+  if(step%2===0){
+    const n=chords[(Math.floor(step/4)+1)%4].lead[phrase[(step/2)%8]%4];
+    tone(n,now+.06,beat*1.5,{type:'sine',volume:.018,attack:.11,cutoff:2200});
+  }
+  stepIndex++; musicTimer=setTimeout(scheduleMusicStep,beat*1000);
+}
+const musicBtn=document.getElementById('musicBtn');
+async function toggleMusic(){
+  try{
+    if(!audioCtx){const AudioContextClass=window.AudioContext||window.webkitAudioContext;if(!AudioContextClass){musicBtn.textContent='♫ Music unavailable';return}audioCtx=new AudioContextClass()}
+    if(musicOn){
+      musicOn=false;clearTimeout(musicTimer);musicTimer=null;
+      await audioCtx.suspend();
+      musicBtn.textContent='♫ Melody for you';musicBtn.setAttribute('aria-label','Play a gentle melody');musicBtn.setAttribute('aria-pressed','false');
+    }else{
+      await audioCtx.resume();musicOn=true;
+      musicBtn.textContent='♫ Pause melody';musicBtn.setAttribute('aria-label','Pause the gentle melody');musicBtn.setAttribute('aria-pressed','true');
+      scheduleMusicStep();
+    }
+  }catch(err){musicBtn.textContent='♫ Tap to try again';musicOn=false;}
+}
+musicBtn.addEventListener('click',toggleMusic);
+
+
+// Little hidden interactions, made for Nabila.
+const secretOverlay=document.getElementById('secretOverlay');
+function revealSecret(message){
+  if(message)document.getElementById('secretText').textContent=message;
+  secretOverlay.hidden=false;
+}
+function closeSecret(){secretOverlay.hidden=true}
+document.getElementById('closeSecret').addEventListener('click',closeSecret);
+secretOverlay.addEventListener('click',e=>{if(e.target===secretOverlay)closeSecret()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSecret()});
+document.getElementById('secretHug').addEventListener('click',()=>{
+  document.getElementById('secretReply').textContent='Hug sent! Imagine Jayy squeezing you tight for a little longer. 🫂💗';
+  startRain(35);
+});
+// Easter egg #1: tap any flower cluster seven times.
+let flowerTaps=0, flowerTapTimer;
+document.querySelectorAll('.hero-flowers').forEach(el=>{
+  el.style.cursor='pointer';
+  el.title='A little secret might be hiding here…';
+  el.addEventListener('click',()=>{
+    flowerTaps++;clearTimeout(flowerTapTimer);
+    flowerTapTimer=setTimeout(()=>flowerTaps=0,2200);
+    if(flowerTaps>=7){flowerTaps=0;revealSecret('Seven little taps for seven little words: I love you more every day. If I were there, I would bring you flowers, hold your hand, and make you laugh until your cheeks hurt. 🌹');startRain(28)}
+    else if(flowerTaps===4){el.animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:400})}
+  });
+});
+// Easter egg #2: double-tap the love letter for a hidden postscript.
+document.getElementById('letter').addEventListener('dblclick',()=>{
+  revealSecret('P.S. Nabila, if you smiled even a tiny bit while reading this, then my surprise worked. Save a smile for me, okay? I owe you a thousand real flowers. — Jayy 🌷');
+});
+// Easter egg #3: type LOVE anywhere to summon a heart shower.
+let loveKeys='';
+document.addEventListener('keydown',e=>{
+  if(e.key.length===1){loveKeys=(loveKeys+e.key.toLowerCase()).slice(-4);if(loveKeys==='love'){loveKeys='';startRain(60);revealSecret('You found the secret word! 💗 Consider this a tiny love shower from Jayy, delivered across every mile. 🌧️🌹')}}
+});
+// Flower-picking window: every choice opens a short, gentle note.
+const flowerChoices=[...document.querySelectorAll('.flower-choice')];
+function chooseFlower(button){flowerChoices.forEach(b=>b.classList.toggle('selected',b===button));document.getElementById('chosenFlower').textContent=button.dataset.flower;document.getElementById('chosenFlowerNote').textContent=button.dataset.note;}
+flowerChoices.forEach(button=>button.addEventListener('click',()=>chooseFlower(button)));
+document.getElementById('shuffleFlowers').addEventListener('click',()=>chooseFlower(flowerChoices[Math.floor(Math.random()*flowerChoices.length)]));
+// Fold-out notes can be opened in any order.
+const thoughts=[...document.querySelectorAll('.thought')];
+function updateThoughtCount(){const count=thoughts.filter(t=>t.getAttribute('aria-expanded')==='true').length;document.getElementById('thoughtCounter').textContent=`${count} of ${thoughts.length} little notes opened`;}
+thoughts.forEach(t=>t.addEventListener('click',()=>{t.setAttribute('aria-expanded',t.getAttribute('aria-expanded')!=='true'?'true':'false');updateThoughtCount()}));
+// Light up the stars one by one; once all seven are lit, the sky shares a wish.
+const wishStars=[...document.querySelectorAll('.wish-star')];
+function updateWish(){const count=wishStars.filter(s=>s.classList.contains('lit')).length;document.getElementById('wishMessage').textContent=count===7?'All seven stars are glowing. May a lovely little surprise find you soon. 🌠':' '+count+' star'+(count===1?'':'s')+' lit. The sky’s waiting for you. ✨';if(count===7)startRain(18);}
+wishStars.forEach(star=>star.addEventListener('click',()=>{star.classList.toggle('lit');updateWish()}));
+document.getElementById('clearStars').addEventListener('click',()=>{wishStars.forEach(s=>s.classList.remove('lit'));updateWish()});
+
+// Gentle heart sparkles when she taps/clicks the page; avoids buttons to keep them easy to use.
+document.addEventListener('pointerdown',e=>{
+  if(e.target.closest('button,.gift-wrap,.envelope,.secret-card'))return;
+  const heart=document.createElement('span');heart.className='heart-spark';heart.textContent=['💗','💕','✨','🌸'][Math.floor(Math.random()*4)];
+  heart.style.left=e.clientX+'px';heart.style.top=e.clientY+'px';document.body.appendChild(heart);setTimeout(()=>heart.remove(),1100);
+});
+
+</script>
+</body>
+</html>
